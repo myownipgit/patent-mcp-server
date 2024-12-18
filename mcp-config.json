@@ -1,0 +1,89 @@
+{
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${WORKSPACE_PATH}", "${DOCUMENTS_PATH}"]
+    },
+    "sqlite": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-sqlite",
+        "--db-path", "${DB_PATH}",
+        "--attach-db", "test=${TEST_DB_PATH}"
+      ]
+    },
+    "epo-ops": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-epo-ops"
+      ],
+      "env": {
+        "EPO_CONSUMER_KEY": "${EPO_CONSUMER_KEY}",
+        "EPO_CONSUMER_SECRET": "${EPO_CONSUMER_SECRET}"
+      }
+    },
+    "wipo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-wipo"
+      ],
+      "env": {
+        "WIPO_API_KEY": "${WIPO_API_KEY}"
+      }
+    },
+    "patentsview": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-patentsview"
+      ],
+      "env": {
+        "PATENTSVIEW_API_KEY": "${PATENTSVIEW_API_KEY}"
+      }
+    },
+    "rapidapi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-rapidapi"
+      ],
+      "env": {
+        "RAPID_API_KEY": "${RAPID_API_KEY}",
+        "RAPID_API_HOST": "patent-scoring.p.rapidapi.com"
+      }
+    },
+    "redis": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-redis"
+      ],
+      "env": {
+        "REDIS_URL": "${REDIS_URL}",
+        "REDIS_PASSWORD": "${REDIS_PASSWORD}"
+      }
+    },
+    "queue": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-bull"
+      ],
+      "env": {
+        "QUEUE_REDIS_URL": "${QUEUE_REDIS_URL}"
+      }
+    }
+  }
+}
